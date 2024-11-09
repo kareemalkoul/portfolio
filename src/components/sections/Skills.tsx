@@ -35,6 +35,8 @@ import {
     SiTrello,
     SiTypescript
 } from "react-icons/si";
+import { AnimatedSection } from '../ui/animated-section';
+import { motion } from 'framer-motion';
 
 const skillCategories = [
   {
@@ -97,14 +99,18 @@ const skillCategories = [
 
 export function Skills() {
   return (
-    <section id="skills" className="py-16">
+    <AnimatedSection id="skills" className="py-16">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold mb-8">Skills</h2>
 
         <div className="grid md:grid-cols-2 gap-8">
           {skillCategories.map((category, idx) => (
-            <div
+            <motion.div
               key={idx}
+              initial={{ opacity: 0, x: idx % 2 === 0 ? -20 : 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: idx * 0.2 }}
+              viewport={{ once: true }}
               className="p-6 rounded-lg border bg-card hover:border-primary transition-colors"
             >
               <div className="flex items-center gap-3 mb-6">
@@ -116,32 +122,38 @@ export function Skills() {
 
               <div className="flex flex-wrap gap-2">
                 {category.skills.map((skill, skillIdx) => (
-                  'link' in skill ? (
-                    <a
-                      key={skillIdx}
-                      href={skill.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-3 py-1.5 rounded-full bg-primary/10 text-sm font-medium hover:bg-primary/20 transition-colors flex items-center gap-2"
-                    >
-                      {skill.icon}
-                      {skill.name}
-                    </a>
-                  ) : (
-                    <span
-                      key={skillIdx}
-                      className="px-3 py-1.5 rounded-full bg-primary/10 text-sm font-medium hover:bg-primary/20 transition-colors flex items-center gap-2"
-                    >
-                      {skill.icon}
-                      {skill.name}
-                    </span>
-                  )
+                  <motion.div
+                    key={skillIdx}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.3, delay: skillIdx * 0.05 }}
+                    viewport={{ once: true }}
+                  >
+                    {'link' in skill ? (
+                      <a
+                        href={skill.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-3 py-1.5 rounded-full bg-primary/10 text-sm font-medium hover:bg-primary/20 transition-colors flex items-center gap-2"
+                      >
+                        {skill.icon}
+                        {skill.name}
+                      </a>
+                    ) : (
+                      <span
+                        className="px-3 py-1.5 rounded-full bg-primary/10 text-sm font-medium hover:bg-primary/20 transition-colors flex items-center gap-2"
+                      >
+                        {skill.icon}
+                        {skill.name}
+                      </span>
+                    )}
+                  </motion.div>
                 ))}
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
-    </section>
+    </AnimatedSection>
   );
 }
