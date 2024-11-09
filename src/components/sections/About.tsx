@@ -1,5 +1,5 @@
-import { Code2, Terminal, Globe, Cpu } from "lucide-react";
-import { AnimatedSection } from "../ui/animated-section";
+/* eslint-disable react/no-unescaped-entities */
+import { Code2, Cpu, Globe, Terminal } from "lucide-react";
 
 const features = [
   {

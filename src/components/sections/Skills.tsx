@@ -1,5 +1,4 @@
-import { Code2, Server, Database, Cloud, Braces, Git, Terminal, Layout } from "lucide-react";
-import { AnimatedSection } from "../ui/animated-section";
+import { Cloud, Database, Layout, Server } from "lucide-react";
 
 const skillCategories = [
   {
