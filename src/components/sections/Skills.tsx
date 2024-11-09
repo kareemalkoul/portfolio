@@ -1,53 +1,81 @@
-import { Cloud, Database, Layout, Server } from "lucide-react";
+import { Code2, Users } from "lucide-react";
+import {
+    FaComments,
+    FaDocker,
+    FaGitAlt, FaGithub,
+    FaNodeJs, FaPython, FaReact,
+    FaTools, FaUsers, FaUserTie
+} from "react-icons/fa";
+import {
+    SiAnsible,
+    SiApachekafka,
+    SiDiscord,
+    SiGo,
+    SiJenkins,
+    SiJira,
+    SiMongodb,
+    SiMysql,
+    SiNatsdotio,
+    SiNestjs, SiNextdotjs,
+    SiNginx,
+    SiNotion,
+    SiPostgresql,
+    SiPrisma,
+    SiRedis,
+    SiTailwindcss,
+    SiTrello,
+    SiTypescript
+} from "react-icons/si";
 
 const skillCategories = [
   {
-    title: "Frontend",
-    icon: <Layout className="w-5 h-5" />,
+    title: "Technical Skills",
+    icon: <Code2 className="w-5 h-5" />,
     skills: [
-      { name: "React", level: 90 },
-      { name: "TypeScript", level: 85 },
-      { name: "Next.js", level: 85 },
-      { name: "Tailwind CSS", level: 90 },
+      { name: "Nodejs", icon: <FaNodeJs className="w-4 h-4" /> },
+      { name: "TypeScript", icon: <SiTypescript className="w-4 h-4" /> },
+      { name: "Golang", icon: <SiGo className="w-4 h-4" /> },
+      { name: "Python", icon: <FaPython className="w-4 h-4" /> },
+      { name: "Nestjs", icon: <SiNestjs className="w-4 h-4" /> },
+      { name: "Nextjs", icon: <SiNextdotjs className="w-4 h-4" /> },
+      { name: "React", icon: <FaReact className="w-4 h-4" /> },
+      { name: "Twailand", icon: <SiTailwindcss className="w-4 h-4" /> },
+      { name: "Git", icon: <FaGitAlt className="w-4 h-4" /> },
+      { name: "GitLab/GitHub", icon: <FaGithub className="w-4 h-4" /> },
+      { name: "Docker", icon: <FaDocker className="w-4 h-4" /> },
+      { name: "Nginx", icon: <SiNginx className="w-4 h-4" /> },
+      { name: "CI/CD Tools", icon: <SiJenkins className="w-4 h-4" /> },
+      { name: "Ansible", icon: <SiAnsible className="w-4 h-4" /> },
+      { name: "Prisma", icon: <SiPrisma className="w-4 h-4" /> },
+      { name: "MongoDB", icon: <SiMongodb className="w-4 h-4" /> },
+      { name: "PostgreSQL", icon: <SiPostgresql className="w-4 h-4" /> },
+      { name: "MySQL", icon: <SiMysql className="w-4 h-4" /> },
+      { name: "Redis", icon: <SiRedis className="w-4 h-4" /> },
+      { name: "Kafka", icon: <SiApachekafka className="w-4 h-4" /> },
+      { name: "NATS-Streaming", icon: <SiNatsdotio className="w-4 h-4" /> }
     ]
   },
   {
-    title: "Backend",
-    icon: <Server className="w-5 h-5" />,
+    title: "Soft Skills",
+    icon: <Users className="w-5 h-5" />,
     skills: [
-      { name: "Node.js", level: 85 },
-      { name: "NestJS", level: 80 },
-      { name: "Express", level: 85 },
-      { name: "REST APIs", level: 90 },
-    ]
-  },
-  {
-    title: "Database",
-    icon: <Database className="w-5 h-5" />,
-    skills: [
-      { name: "MongoDB", level: 85 },
-      { name: "PostgreSQL", level: 80 },
-      { name: "Redis", level: 75 },
-      { name: "Prisma", level: 85 },
-    ]
-  },
-  {
-    title: "DevOps & Tools",
-    icon: <Cloud className="w-5 h-5" />,
-    skills: [
-      { name: "Docker", level: 80 },
-      { name: "Git", level: 90 },
-      { name: "CI/CD", level: 80 },
-      { name: "AWS", level: 75 },
+      { name: "Team Leadership", icon: <FaUserTie className="w-4 h-4" /> },
+      { name: "Communication", icon: <FaComments className="w-4 h-4" /> },
+      { name: "Team Collaboration", icon: <FaUsers className="w-4 h-4" /> },
+      { name: "Tools Management", icon: <FaTools className="w-4 h-4" /> },
+      { name: "Jira", icon: <SiJira className="w-4 h-4" /> },
+      { name: "Trello", icon: <SiTrello className="w-4 h-4" /> },
+      { name: "Discord", icon: <SiDiscord className="w-4 h-4" /> },
+      { name: "Notion", icon: <SiNotion className="w-4 h-4" /> },
     ]
   }
 ];
 
 export function Skills() {
   return (
-    <section id="skills" className="...">
+    <section id="skills" className="py-16">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold mb-8">Skills & Expertise</h2>
+        <h2 className="text-3xl font-bold mb-8">Skills</h2>
         
         <div className="grid md:grid-cols-2 gap-8">
           {skillCategories.map((category, idx) => (
@@ -62,20 +90,15 @@ export function Skills() {
                 <h3 className="font-semibold text-lg">{category.title}</h3>
               </div>
               
-              <div className="space-y-4">
+              <div className="flex flex-wrap gap-2">
                 {category.skills.map((skill, skillIdx) => (
-                  <div key={skillIdx}>
-                    <div className="flex justify-between mb-1">
-                      <span className="text-sm font-medium">{skill.name}</span>
-                      <span className="text-sm text-muted-foreground">{skill.level}%</span>
-                    </div>
-                    <div className="w-full h-2 bg-muted rounded-full overflow-hidden">
-                      <div 
-                        className="h-full bg-primary transition-all duration-500 ease-out"
-                        style={{ width: `${skill.level}%` }}
-                      />
-                    </div>
-                  </div>
+                  <span
+                    key={skillIdx}
+                    className="px-3 py-1.5 rounded-full bg-primary/10 text-sm font-medium hover:bg-primary/20 transition-colors flex items-center gap-2"
+                  >
+                    {skill.icon}
+                    {skill.name}
+                  </span>
                 ))}
               </div>
             </div>
