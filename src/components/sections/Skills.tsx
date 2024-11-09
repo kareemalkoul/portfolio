@@ -1,30 +1,39 @@
 import { Code2, Users } from "lucide-react";
 import {
-    FaComments,
-    FaDocker,
-    FaGitAlt, FaGithub,
-    FaNodeJs, FaPython, FaReact,
-    FaTools, FaUsers, FaUserTie
+  FaComments,
+  FaDocker,
+  FaGitAlt,
+  FaGithub,
+  FaNodeJs,
+  FaPython,
+  FaReact,
+  FaTools,
+  FaUsers,
+  FaUserTie,
+  FaLinux,
 } from "react-icons/fa";
 import {
-    SiAnsible,
-    SiApachekafka,
-    SiDiscord,
-    SiGo,
-    SiJenkins,
-    SiJira,
-    SiMongodb,
-    SiMysql,
-    SiNatsdotio,
-    SiNestjs, SiNextdotjs,
-    SiNginx,
-    SiNotion,
-    SiPostgresql,
-    SiPrisma,
-    SiRedis,
-    SiTailwindcss,
-    SiTrello,
-    SiTypescript
+  SiAnsible,
+  SiApachekafka,
+  SiDiscord,
+  SiGo,
+  SiJenkins,
+  SiJira,
+  SiMongodb,
+  SiMysql,
+  SiNatsdotio,
+  SiNestjs,
+  SiNextdotjs,
+  SiNginx,
+  SiNotion,
+  SiPostgresql,
+  SiPrisma,
+  SiRedis,
+  SiTailwindcss,
+  SiTrello,
+  SiTypescript,
+  SiGnubash,
+  SiGitlab,
 } from "react-icons/si";
 
 const skillCategories = [
@@ -32,28 +41,40 @@ const skillCategories = [
     title: "Technical Skills",
     icon: <Code2 className="w-5 h-5" />,
     skills: [
+      // Node.js and related technologies
       { name: "Nodejs", icon: <FaNodeJs className="w-4 h-4" /> },
       { name: "TypeScript", icon: <SiTypescript className="w-4 h-4" /> },
-      { name: "Golang", icon: <SiGo className="w-4 h-4" /> },
-      { name: "Python", icon: <FaPython className="w-4 h-4" /> },
       { name: "Nestjs", icon: <SiNestjs className="w-4 h-4" /> },
+      { name: "Prisma", icon: <SiPrisma className="w-4 h-4" /> },
       { name: "Nextjs", icon: <SiNextdotjs className="w-4 h-4" /> },
       { name: "React", icon: <FaReact className="w-4 h-4" /> },
-      { name: "Twailand", icon: <SiTailwindcss className="w-4 h-4" /> },
+      { name: "Tailwind", icon: <SiTailwindcss className="w-4 h-4" /> },
+
+      // Other programming languages
+      { name: "Golang", icon: <SiGo className="w-4 h-4" /> },
+      { name: "Python", icon: <FaPython className="w-4 h-4" /> },
+
+      // Linux and Shell
+
+      // DevOps & Infrastructure
       { name: "Git", icon: <FaGitAlt className="w-4 h-4" /> },
       { name: "GitLab/GitHub", icon: <FaGithub className="w-4 h-4" /> },
+      { name: "Linux", icon: <FaLinux className="w-4 h-4" /> },
+      { name: "Bash", icon: <SiGnubash className="w-4 h-4" /> },
       { name: "Docker", icon: <FaDocker className="w-4 h-4" /> },
       { name: "Nginx", icon: <SiNginx className="w-4 h-4" /> },
+      { name: "GitLab CI/Runner", icon: <SiGitlab className="w-4 h-4" /> },
       { name: "CI/CD Tools", icon: <SiJenkins className="w-4 h-4" /> },
       { name: "Ansible", icon: <SiAnsible className="w-4 h-4" /> },
-      { name: "Prisma", icon: <SiPrisma className="w-4 h-4" /> },
+
+      // Databases & Message Queues
       { name: "MongoDB", icon: <SiMongodb className="w-4 h-4" /> },
       { name: "PostgreSQL", icon: <SiPostgresql className="w-4 h-4" /> },
       { name: "MySQL", icon: <SiMysql className="w-4 h-4" /> },
       { name: "Redis", icon: <SiRedis className="w-4 h-4" /> },
       { name: "Kafka", icon: <SiApachekafka className="w-4 h-4" /> },
-      { name: "NATS-Streaming", icon: <SiNatsdotio className="w-4 h-4" /> }
-    ]
+      { name: "NATS-Streaming", icon: <SiNatsdotio className="w-4 h-4" /> },
+    ],
   },
   {
     title: "Soft Skills",
@@ -67,8 +88,8 @@ const skillCategories = [
       { name: "Trello", icon: <SiTrello className="w-4 h-4" /> },
       { name: "Discord", icon: <SiDiscord className="w-4 h-4" /> },
       { name: "Notion", icon: <SiNotion className="w-4 h-4" /> },
-    ]
-  }
+    ],
+  },
 ];
 
 export function Skills() {
@@ -76,10 +97,10 @@ export function Skills() {
     <section id="skills" className="py-16">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold mb-8">Skills</h2>
-        
+
         <div className="grid md:grid-cols-2 gap-8">
           {skillCategories.map((category, idx) => (
-            <div 
+            <div
               key={idx}
               className="p-6 rounded-lg border bg-card hover:border-primary transition-colors"
             >
@@ -89,7 +110,7 @@ export function Skills() {
                 </div>
                 <h3 className="font-semibold text-lg">{category.title}</h3>
               </div>
-              
+
               <div className="flex flex-wrap gap-2">
                 {category.skills.map((skill, skillIdx) => (
                   <span
@@ -107,4 +128,4 @@ export function Skills() {
       </div>
     </section>
   );
-} 
+}

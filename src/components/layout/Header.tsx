@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
-import { Menu, X, Code2, Terminal } from "lucide-react";
+import { Menu, X, Code2 } from "lucide-react";
 import { ModeToggle } from "@/components/mode-toggle";
 
 const navItems = [
@@ -80,15 +80,6 @@ export function Header() {
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
             </a>
           ))}
-          <a 
-            href="https://github.com/kareemalkoul" 
-            target="_blank"
-            rel="noopener noreferrer"
-            className="relative text-foreground/70 hover:text-foreground transition-colors flex items-center gap-1"
-          >
-            <Terminal className="w-4 h-4" />
-            <span>GitHub</span>
-          </a>
           <ModeToggle />
         </div>
 
@@ -129,15 +120,6 @@ export function Header() {
               {item.name}
             </a>
           ))}
-          <a 
-            href="https://github.com/kareemalkoul"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-4 py-2 hover:bg-muted rounded-md transition-colors flex items-center gap-2"
-          >
-            <Terminal className="w-4 h-4" />
-            <span>GitHub</span>
-          </a>
           <div className="px-4 py-2">
             <ModeToggle />
           </div>

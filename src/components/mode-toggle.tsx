@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import { Moon, Sun } from "lucide-react"
+import { motion, AnimatePresence } from "framer-motion"
 
 export function ModeToggle() {
   const [isDark, setIsDark] = React.useState(false)
@@ -21,13 +22,29 @@ export function ModeToggle() {
   }, [])
 
   return (
-    <button
+    <motion.button
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.9 }}
       onClick={toggleTheme}
-      className="rounded-md p-2 hover:bg-muted transition-colors relative"
+      className="relative w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary/20 transition-colors"
       aria-label="Toggle theme"
     >
-      <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-      <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100 left-2 top-2" />
-    </button>
+      <AnimatePresence mode="wait" initial={false}>
+        <motion.div
+          key={isDark ? 'dark' : 'light'}
+          initial={{ y: -20, opacity: 0, rotate: -90 }}
+          animate={{ y: 0, opacity: 1, rotate: 0 }}
+          exit={{ y: 20, opacity: 0, rotate: 90 }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+          className="absolute"
+        >
+          {isDark ? (
+            <Moon className="w-5 h-5" />
+          ) : (
+            <Sun className="w-5 h-5" />
+          )}
+        </motion.div>
+      </AnimatePresence>
+    </motion.button>
   )
 } 
