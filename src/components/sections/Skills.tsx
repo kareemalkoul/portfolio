@@ -1,39 +1,39 @@
 import { Code2, Users } from "lucide-react";
 import {
-  FaComments,
-  FaDocker,
-  FaGitAlt,
-  FaGithub,
-  FaNodeJs,
-  FaPython,
-  FaReact,
-  FaTools,
-  FaUsers,
-  FaUserTie,
-  FaLinux,
+    FaComments,
+    FaDocker,
+    FaGitAlt,
+    FaGithub,
+    FaLinux,
+    FaNodeJs,
+    FaPython,
+    FaReact,
+    FaTools,
+    FaUsers,
+    FaUserTie,
 } from "react-icons/fa";
 import {
-  SiAnsible,
-  SiApachekafka,
-  SiDiscord,
-  SiGo,
-  SiJenkins,
-  SiJira,
-  SiMongodb,
-  SiMysql,
-  SiNatsdotio,
-  SiNestjs,
-  SiNextdotjs,
-  SiNginx,
-  SiNotion,
-  SiPostgresql,
-  SiPrisma,
-  SiRedis,
-  SiTailwindcss,
-  SiTrello,
-  SiTypescript,
-  SiGnubash,
-  SiGitlab,
+    SiAnsible,
+    SiApachekafka,
+    SiDiscord,
+    SiGitlab,
+    SiGnubash,
+    SiGo,
+    SiJira,
+    SiMongodb,
+    SiMysql,
+    SiNatsdotio,
+    SiNestjs,
+    SiNextdotjs,
+    SiNginx,
+    SiNotion,
+    SiPostgresql,
+    SiPrisma,
+    SiRedis,
+    SiStripe,
+    SiTailwindcss,
+    SiTrello,
+    SiTypescript
 } from "react-icons/si";
 
 const skillCategories = [
@@ -42,38 +42,41 @@ const skillCategories = [
     icon: <Code2 className="w-5 h-5" />,
     skills: [
       // Node.js and related technologies
-      { name: "Nodejs", icon: <FaNodeJs className="w-4 h-4" /> },
-      { name: "TypeScript", icon: <SiTypescript className="w-4 h-4" /> },
-      { name: "Nestjs", icon: <SiNestjs className="w-4 h-4" /> },
-      { name: "Prisma", icon: <SiPrisma className="w-4 h-4" /> },
-      { name: "Nextjs", icon: <SiNextdotjs className="w-4 h-4" /> },
-      { name: "React", icon: <FaReact className="w-4 h-4" /> },
-      { name: "Tailwind", icon: <SiTailwindcss className="w-4 h-4" /> },
+      { name: "Nodejs", icon: <FaNodeJs className="w-4 h-4" />, link: "https://nodejs.org/" },
+      { name: "TypeScript", icon: <SiTypescript className="w-4 h-4" />, link: "https://www.typescriptlang.org/" },
+      { name: "Nestjs", icon: <SiNestjs className="w-4 h-4" />, link: "https://nestjs.com/" },
+      { name: "Prisma", icon: <SiPrisma className="w-4 h-4" />, link: "https://www.prisma.io/" },
+      { name: "Nextjs", icon: <SiNextdotjs className="w-4 h-4" />, link: "https://nextjs.org/" },
+      { name: "React", icon: <FaReact className="w-4 h-4" />, link: "https://reactjs.org/" },
+      { name: "Tailwind", icon: <SiTailwindcss className="w-4 h-4" />, link: "https://tailwindcss.com/" },
 
       // Other programming languages
-      { name: "Golang", icon: <SiGo className="w-4 h-4" /> },
-      { name: "Python", icon: <FaPython className="w-4 h-4" /> },
+      { name: "Golang", icon: <SiGo className="w-4 h-4" />, link: "https://golang.org/" },
+      { name: "Python", icon: <FaPython className="w-4 h-4" />, link: "https://www.python.org/" },
+      { name: "Stripe", icon: <SiStripe className="w-4 h-4" />, link: "https://stripe.com/" },
+      { name: "PayTabs", link: "https://www.paytabs.com/" },
+      { name: "Checkout", link: "https://www.checkout.com/" },
 
       // Linux and Shell
 
       // DevOps & Infrastructure
-      { name: "Git", icon: <FaGitAlt className="w-4 h-4" /> },
-      { name: "GitLab/GitHub", icon: <FaGithub className="w-4 h-4" /> },
-      { name: "Linux", icon: <FaLinux className="w-4 h-4" /> },
-      { name: "Bash", icon: <SiGnubash className="w-4 h-4" /> },
-      { name: "Docker", icon: <FaDocker className="w-4 h-4" /> },
-      { name: "Nginx", icon: <SiNginx className="w-4 h-4" /> },
-      { name: "GitLab CI/Runner", icon: <SiGitlab className="w-4 h-4" /> },
-      { name: "CI/CD Tools", icon: <SiJenkins className="w-4 h-4" /> },
-      { name: "Ansible", icon: <SiAnsible className="w-4 h-4" /> },
+      { name: "Git", icon: <FaGitAlt className="w-4 h-4" />, link: "https://git-scm.com/" },
+      { name: "GitLab/GitHub", icon: <FaGithub className="w-4 h-4" />, link: "https://about.gitlab.com/" },
+      { name: "Linux", icon: <FaLinux className="w-4 h-4" />, link: "https://www.linux.org/" },
+      { name: "Bash", icon: <SiGnubash className="w-4 h-4" />, link: "https://www.gnu.org/software/bash/" },
+      { name: "Docker", icon: <FaDocker className="w-4 h-4" />, link: "https://www.docker.com/" },
+      { name: "Nginx", icon: <SiNginx className="w-4 h-4" />, link: "https://nginx.org/" },
+      { name: "GitLab CI/Runner", icon: <SiGitlab className="w-4 h-4" />, link: "https://docs.gitlab.com/runner/" },
+      { name: "GitLab CI/CD", icon: <SiGitlab className="w-4 h-4" />, link: "https://docs.gitlab.com/ee/ci/" },
+      { name: "Ansible", icon: <SiAnsible className="w-4 h-4" />, link: "https://www.ansible.com/" },
 
       // Databases & Message Queues
-      { name: "MongoDB", icon: <SiMongodb className="w-4 h-4" /> },
-      { name: "PostgreSQL", icon: <SiPostgresql className="w-4 h-4" /> },
-      { name: "MySQL", icon: <SiMysql className="w-4 h-4" /> },
-      { name: "Redis", icon: <SiRedis className="w-4 h-4" /> },
-      { name: "Kafka", icon: <SiApachekafka className="w-4 h-4" /> },
-      { name: "NATS-Streaming", icon: <SiNatsdotio className="w-4 h-4" /> },
+      { name: "MongoDB", icon: <SiMongodb className="w-4 h-4" />, link: "https://www.mongodb.com/" },
+      { name: "PostgreSQL", icon: <SiPostgresql className="w-4 h-4" />, link: "https://www.postgresql.org/" },
+      { name: "MySQL", icon: <SiMysql className="w-4 h-4" />, link: "https://www.mysql.com/" },
+      { name: "Redis", icon: <SiRedis className="w-4 h-4" />, link: "https://redis.io/" },
+      { name: "Kafka", icon: <SiApachekafka className="w-4 h-4" />, link: "https://kafka.apache.org/" },
+      { name: "NATS-Streaming", icon: <SiNatsdotio className="w-4 h-4" />, link: "https://docs.nats.io/nats-streaming-concepts/intro" },
     ],
   },
   {
@@ -113,13 +116,26 @@ export function Skills() {
 
               <div className="flex flex-wrap gap-2">
                 {category.skills.map((skill, skillIdx) => (
-                  <span
-                    key={skillIdx}
-                    className="px-3 py-1.5 rounded-full bg-primary/10 text-sm font-medium hover:bg-primary/20 transition-colors flex items-center gap-2"
-                  >
-                    {skill.icon}
-                    {skill.name}
-                  </span>
+                  'link' in skill ? (
+                    <a
+                      key={skillIdx}
+                      href={skill.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-3 py-1.5 rounded-full bg-primary/10 text-sm font-medium hover:bg-primary/20 transition-colors flex items-center gap-2"
+                    >
+                      {skill.icon}
+                      {skill.name}
+                    </a>
+                  ) : (
+                    <span
+                      key={skillIdx}
+                      className="px-3 py-1.5 rounded-full bg-primary/10 text-sm font-medium hover:bg-primary/20 transition-colors flex items-center gap-2"
+                    >
+                      {skill.icon}
+                      {skill.name}
+                    </span>
+                  )
                 ))}
               </div>
             </div>
