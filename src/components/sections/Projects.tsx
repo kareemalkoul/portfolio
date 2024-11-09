@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { Github, ExternalLink } from 'lucide-react';
+import { AnimatedSection } from '../ui/animated-section';
 
 const projects = [
   {
@@ -17,7 +18,7 @@ const projects = [
 
 export function Projects() {
   return (
-    <section id="projects" className="py-16 bg-muted/50">
+    <AnimatedSection id="projects" className="py-16 bg-muted/50">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold mb-8">Featured Projects</h2>
         
@@ -76,6 +77,6 @@ export function Projects() {
           ))}
         </div>
       </div>
-    </section>
+    </AnimatedSection>
   );
 } 

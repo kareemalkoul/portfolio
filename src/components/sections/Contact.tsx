@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { AnimatedSection } from "../ui/animated-section";
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -17,7 +18,7 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="py-16">
+    <AnimatedSection id="contact" className="py-16">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold mb-8">Get in Touch</h2>
         
@@ -37,10 +38,10 @@ export function Contact() {
                 <div>
                   <p className="font-medium">Email</p>
                   <a 
-                    href="mailto:kareem@example.com" 
+                    href="mailto:kareemalkoul1986@gmail.com" 
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
-                    kareem@example.com
+                    kareemalkoul1986@gmail.com
                   </a>
                 </div>
               </div>
@@ -126,6 +127,6 @@ export function Contact() {
           </form>
         </div>
       </div>
-    </section>
+    </AnimatedSection>
   );
 } 

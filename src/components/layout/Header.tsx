@@ -3,13 +3,33 @@
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { Menu, X, Code2, Terminal } from "lucide-react";
+import { ModeToggle } from "@/components/mode-toggle";
 
 const navItems = [
   { name: "About", href: "#about" },
   { name: "Skills", href: "#skills" },
   { name: "Projects", href: "#projects" },
+  { name: "Volunteer", href: "#volunteer" },
   { name: "Contact", href: "#contact" },
 ];
+
+function scrollToSection(e: React.MouseEvent<HTMLAnchorElement>, href: string) {
+  e.preventDefault();
+  const element = document.querySelector(href);
+  if (element) {
+    const headerOffset = 80; // Height of your fixed header
+    const elementPosition = element.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: "smooth"
+    });
+
+    // Update the URL in the address bar
+    window.history.pushState(null, '', href);
+  }
+}
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -37,6 +57,10 @@ export function Header() {
         {/* Logo/Name */}
         <a
           href="#"
+          onClick={(e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }}
           className="font-bold text-xl hover:text-primary transition-colors flex items-center gap-2 group"
         >
           <Code2 className="w-6 h-6 group-hover:rotate-12 transition-transform duration-300" />
@@ -44,11 +68,12 @@ export function Header() {
         </a>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex gap-8">
+        <div className="hidden md:flex items-center gap-8">
           {navItems.map((item) => (
             <a
               key={item.name}
               href={item.href}
+              onClick={(e) => scrollToSection(e, item.href)}
               className="relative text-foreground/70 hover:text-foreground transition-colors group flex items-center gap-1"
             >
               {item.name}
@@ -56,7 +81,7 @@ export function Header() {
             </a>
           ))}
           <a 
-            href="https://github.com/yourusername" 
+            href="https://github.com/kareemalkoul" 
             target="_blank"
             rel="noopener noreferrer"
             className="relative text-foreground/70 hover:text-foreground transition-colors flex items-center gap-1"
@@ -64,6 +89,7 @@ export function Header() {
             <Terminal className="w-4 h-4" />
             <span>GitHub</span>
           </a>
+          <ModeToggle />
         </div>
 
         {/* Mobile Menu Button */}
@@ -94,14 +120,17 @@ export function Header() {
             <a
               key={item.name}
               href={item.href}
+              onClick={(e) => {
+                scrollToSection(e, item.href);
+                setIsMobileMenuOpen(false);
+              }}
               className="px-4 py-2 hover:bg-muted rounded-md transition-colors flex items-center gap-2"
-              onClick={() => setIsMobileMenuOpen(false)}
             >
               {item.name}
             </a>
           ))}
           <a 
-            href="https://github.com/yourusername"
+            href="https://github.com/kareemalkoul"
             target="_blank"
             rel="noopener noreferrer"
             className="px-4 py-2 hover:bg-muted rounded-md transition-colors flex items-center gap-2"
@@ -109,6 +138,9 @@ export function Header() {
             <Terminal className="w-4 h-4" />
             <span>GitHub</span>
           </a>
+          <div className="px-4 py-2">
+            <ModeToggle />
+          </div>
         </div>
       </div>
     </header>

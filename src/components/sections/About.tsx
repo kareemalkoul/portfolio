@@ -1,4 +1,5 @@
 import { Code2, Terminal, Globe, Cpu } from "lucide-react";
+import { AnimatedSection } from "../ui/animated-section";
 
 const features = [
   {
@@ -33,16 +34,16 @@ export function About() {
           {/* Bio Section */}
           <div className="space-y-6">
             <p className="text-lg leading-relaxed text-muted-foreground">
-              Passionate FullStack Developer with +3 years' experience in building scalable, maintainable web
-              applications and back-end systems.
+              Passionate MERN Stack Developer with +3 years' experience in building scalable, maintainable web
+              applications using MongoDB, Express.js, React, and Node.js.
             </p>
             <p className="text-lg leading-relaxed text-muted-foreground">
-              Proficient in modern technologies such as Node.js, React, TypeScript,
-              and NestJS. Demonstrated expertise in API design, CI/CD pipelines, containerization, and agile
+              Proficient in modern technologies within the MERN ecosystem, including TypeScript,
+              Nest.js, Next.js, React.js and Node.js. Demonstrated expertise in RESTful API design, CI/CD pipelines, and agile
               methodologies.
             </p>
             <p className="text-lg leading-relaxed text-muted-foreground">
-              Seeking challenging opportunities to leverage my technical skills and contribute to
+              Seeking challenging opportunities to leverage my MERN stack expertise and contribute to
               innovative projects.
             </p>
           </div>

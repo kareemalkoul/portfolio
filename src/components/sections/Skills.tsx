@@ -1,4 +1,5 @@
 import { Code2, Server, Database, Cloud, Braces, Git, Terminal, Layout } from "lucide-react";
+import { AnimatedSection } from "../ui/animated-section";
 
 const skillCategories = [
   {
@@ -45,7 +46,7 @@ const skillCategories = [
 
 export function Skills() {
   return (
-    <section id="skills" className="py-16">
+    <section id="skills" className="...">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold mb-8">Skills & Expertise</h2>
         
