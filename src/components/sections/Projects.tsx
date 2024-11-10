@@ -25,7 +25,7 @@ import {
   SiRedis,
   SiStripe,
   SiSwagger,
-  SiTensorflow
+  SiTensorflow,
 } from "react-icons/si";
 import ImageFallback from "../img";
 import { AnimatedSection } from "../ui/animated-section";
@@ -57,7 +57,10 @@ const projects: Project[] = [
     title: "Optimal",
     description:
       "Built an e-commerce platform for mom and baby products, featuring an interactive learning system with reels, blogs, and a user-friendly dashboard for management. Focused on enhancing UX/UI for community engagement.",
-    images: ["/images/optimal/optimal-1.png", "/images/optimal/optimal-2.png"],
+    images: [
+      "/images/optimal/optimal-1.png",
+      //  "/images/optimal/optimal-2.png"
+    ],
     tags: [
       { name: "Next.js", icon: <SiNextdotjs className="w-3 h-3" /> },
       { name: "ReactJS", icon: <SiReact className="w-3 h-3" /> },
@@ -162,7 +165,7 @@ const projects: Project[] = [
     description:
       "Led the development of a mobile platform to teach kids programming through interactive kits, incorporating educational design and team leadership.",
     images: [
-      "/images/cokids/cokids-1.jpg", 
+      "/images/cokids/cokids-1.jpg",
       // "/images/cokids/cokids-2.png"
     ],
     tags: [
