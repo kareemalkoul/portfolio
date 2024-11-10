@@ -53,10 +53,10 @@ export function Contact() {
                 <div>
                   <p className="font-medium">Phone</p>
                   <a 
-                    href="tel:+1234567890" 
+                    href="tel:+963935062813" 
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
-                    +123 456 7890
+                    +963 935 062 813
                   </a>
                 </div>
               </div>
@@ -67,7 +67,7 @@ export function Contact() {
                 </div>
                 <div>
                   <p className="font-medium">Location</p>
-                  <p className="text-muted-foreground">Your Location</p>
+                  <p className="text-muted-foreground">Damascus, Syria</p>
                 </div>
               </div>
             </div>

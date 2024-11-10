@@ -1,40 +1,16 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
-import { SiGitlab, SiStackoverflow } from "react-icons/si";
 import BlurIn from "@/components/ui/blur-in";
+import DotPattern from "@/components/ui/dot-pattern";
 import { FadeText } from "@/components/ui/fade-text";
-import AnimatedShinyText from "@/components/ui/animated-shiny-text";
+import ShimmerButton from "@/components/ui/shimmer-button";
+import TypingAnimation from "@/components/ui/typing-animation";
+import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
+import { ArrowDown } from "lucide-react";
 import Image from "next/image";
+import { socialLinks } from "@/components/social-links";
 
-const socialLinks = [
-  {
-    icon: <Github className="w-5 h-5" />,
-    href: "https://github.com/kareemalkoul",
-    label: "GitHub",
-  },
-  {
-    icon: <SiGitlab className="w-5 h-5" />,
-    href: "https://gitlab.com/kareem_alkoul",
-    label: "GitLab",
-  },
-  {
-    icon: <SiStackoverflow className="w-5 h-5" />,
-    href: "https://stackoverflow.com/users/15849317/kareem-alkoul",
-    label: "Stack Overflow",
-  },
-  {
-    icon: <Linkedin className="w-5 h-5" />,
-    href: "https://www.linkedin.com/in/kareem-alkoul/",
-    label: "LinkedIn",
-  },
-  {
-    icon: <Mail className="w-5 h-5" />,
-    href: "mailto:kareemalkoul1986@gmail.com",
-    label: "Email",
-  },
-];
 
 export function Hero() {
   const scrollToNextSection = () => {
@@ -42,49 +18,64 @@ export function Hero() {
     if (aboutSection) {
       const headerHeight = 80; // Height of your fixed header
       const elementPosition = aboutSection.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+      const offsetPosition =
+        elementPosition + window.pageYOffset - headerHeight;
 
       window.scrollTo({
         top: offsetPosition,
-        behavior: "smooth"
+        behavior: "smooth",
       });
     }
   };
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center">
-      <div className="container mx-auto px-4 py-32">
+    <section 
+      id="hero" 
+      className="relative min-h-screen flex items-center isolate"
+    >
+      {/* Background Pattern */}
+      <div className="absolute inset-0 overflow-hidden">
+        <DotPattern
+          width={50}
+          height={50}
+          className={cn(
+            "[mask-image:radial-gradient(600px_circle_at_center,white,transparent)]",
+            "absolute inset-0"
+          )}
+        />
+      </div>
+
+      {/* Content Container */}
+      <div className="container mx-auto px-4 py-32 relative">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left Column - Text Content */}
           <div className="text-center md:text-left order-2 md:order-1">
-            {/* Name */}
             <div className="md:max-w-xl md:pl-8 lg:pl-12">
-              <BlurIn
-                word="Kareem Alkoul"
-                className="text-4xl md:text-7xl font-bold mb-4 inline-block"
-              />
+              <div className="relative">
+                <BlurIn
+                  word="Kareem Alkoul"
+                  className="text-4xl md:text-7xl font-bold mb-4 inline-block"
+                />
+              </div>
 
-              {/* Role */}
-              <FadeText
-                text="Software Engineer & Full Stack Developer"
-                className="text-2xl md:text-4xl font-bold text-muted-foreground mb-6"
-              />
+              <div className="relative">
+                <TypingAnimation
+                  text="Software Engineer & Full Stack Developer"
+                  className="text-2xl md:text-4xl font-bold text-muted-foreground mb-6 block"
+                  delay={0.1}
+                />
+              </div>
 
-              {/* Description */}
-              <AnimatedShinyText className="mb-8 text-lg">
-                Software Engineer with expertise in Full Stack Development and DevOps. 
-                Passionate about building scalable web applications and microservices 
-                using modern technologies like Nest.js, Next.js, React.js, Node.js, and Cloud platforms.
-              </AnimatedShinyText>
+              <div className="relative">
+                <FadeText
+                  text="Software Engineer with expertise in Full Stack Development and DevOps. Passionate about building scalable web applications and microservices using modern technologies like Nest.js, Next.js, React.js, Node.js, and Cloud platforms."
+                  className="mb-8 text-lg"
+                />
+              </div>
 
               {/* CTA Buttons */}
               <div className="flex flex-wrap gap-4 mb-8 justify-center md:justify-start">
-                <a
-                  href="#contact"
-                  className="px-6 py-3 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors"
-                >
-                  Get in Touch
-                </a>
+                <ShimmerButton href="#contact">Get in Touch</ShimmerButton>
                 <a
                   href="#projects"
                   className="px-6 py-3 border rounded-md hover:bg-primary/10 transition-colors"
@@ -152,7 +143,7 @@ export function Hero() {
           transition={{
             duration: 1.5,
             repeat: Infinity,
-            ease: "easeInOut"
+            ease: "easeInOut",
           }}
         >
           <ArrowDown className="w-6 h-6" />
@@ -160,4 +151,4 @@ export function Hero() {
       </motion.div>
     </section>
   );
-} 
+}

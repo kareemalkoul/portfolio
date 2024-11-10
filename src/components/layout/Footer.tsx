@@ -1,64 +1,100 @@
-import { Github, Linkedin, Twitter, Mail } from "lucide-react";
-
-const socialLinks = [
-  {
-    icon: <Github className="w-5 h-5" />,
-    href: "https://github.com/yourusername",
-    label: "GitHub",
-  },
-  {
-    icon: <Linkedin className="w-5 h-5" />,
-    href: "https://linkedin.com/in/yourusername",
-    label: "LinkedIn",
-  },
-  {
-    icon: <Twitter className="w-5 h-5" />,
-    href: "https://twitter.com/yourusername",
-    label: "Twitter",
-  },
-  {
-    icon: <Mail className="w-5 h-5" />,
-    href: "mailto:kareem@example.com",
-    label: "Email",
-  },
-];
-
+import { motion } from "framer-motion";
+import { socialLinks } from "../social-links";
 export function Footer() {
   return (
     <footer className="bg-muted py-12">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col items-center gap-8">
+        <motion.div 
+          className="flex flex-col items-center gap-8"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+        >
           {/* Logo/Name */}
-          <a href="#" className="text-2xl font-bold hover:text-primary transition-colors">
-            KA
-          </a>
+          <motion.a 
+            href="#" 
+            className="text-2xl font-bold hover:text-primary transition-colors relative"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <span className="relative inline-block">
+              KA
+              <motion.span
+                className="absolute bottom-0 left-0 w-full h-0.5 bg-primary origin-left"
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                viewport={{ once: true }}
+              />
+            </span>
+          </motion.a>
 
-          {/* Social Links */}
+          {/* Social Links with alternating left/right animations */}
           <div className="flex gap-6">
             {socialLinks.map((link, idx) => (
-              <a
+              <motion.a
                 key={idx}
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-background flex items-center justify-center hover:bg-primary/10 hover:text-primary transition-colors"
                 aria-label={link.label}
+                initial={{ 
+                  opacity: 0, 
+                  x: idx % 2 === 0 ? -50 : 50 // Alternate between left and right
+                }}
+                whileInView={{ 
+                  opacity: 1, 
+                  x: 0 
+                }}
+                transition={{ 
+                  duration: 0.5, 
+                  delay: idx * 0.1,
+                  type: "spring",
+                  stiffness: 100,
+                  damping: 20 
+                }}
+                viewport={{ once: true }}
+                whileHover={{ 
+                  scale: 1.1,
+                  rotate: 360,
+                  transition: { duration: 0.3 }
+                }}
+                whileTap={{ scale: 0.9 }}
               >
                 {link.icon}
-              </a>
+              </motion.a>
             ))}
           </div>
 
           {/* Copyright */}
-          <div className="text-center text-muted-foreground">
-            <p className="mb-2">
+          <motion.div 
+            className="text-center text-muted-foreground"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            <motion.p 
+              className="mb-2"
+              initial={{ y: 20, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+              viewport={{ once: true }}
+            >
               Designed & Built by Kareem Alkoul
-            </p>
-            <p>
+            </motion.p>
+            <motion.p
+              initial={{ y: 20, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+              viewport={{ once: true }}
+            >
               © {new Date().getFullYear()} All rights reserved.
-            </p>
-          </div>
-        </div>
+            </motion.p>
+          </motion.div>
+        </motion.div>
       </div>
     </footer>
   );

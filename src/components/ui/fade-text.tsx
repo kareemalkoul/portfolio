@@ -2,6 +2,7 @@
 
 import { useMemo } from "react";
 import { motion, Variants } from "framer-motion";
+import { cn } from "@/lib/utils";
 
 type FadeTextProps = {
   className?: string;
@@ -52,8 +53,9 @@ export function FadeText({
       animate="show"
       viewport={{ once: true }}
       variants={FADE_ANIMATION_VARIANTS}
+      className={cn("overflow-hidden", className)}
     >
-      <motion.span className={className}>{text}</motion.span>
+      <motion.span>{text}</motion.span>
     </motion.div>
   );
 }
