@@ -13,8 +13,23 @@ export function Contact() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Add your form submission logic here
-    console.log("Form submitted:", formData);
+    
+    try {
+      // Create email content with proper line breaks for HTML
+      const subject = `Contact from ${formData.name}`;
+      const body = `Name: ${formData.name}%0D%0AEmail: ${formData.email}%0D%0A%0D%0AMessage:%0D%0A${formData.message}`;
+      
+      // Create mailto URL with manual encoding
+      const mailtoUrl = `mailto:kareemalkoul1986@gmail.com?subject=${subject}&body=${body}`;
+      
+      // Open in new window/tab
+      window.open(mailtoUrl, '_blank');
+      
+      // Reset form
+      setFormData({ name: '', email: '', message: '' });
+    } catch (error) {
+      console.error('Error opening email client:', error);
+    }
   };
 
   return (
