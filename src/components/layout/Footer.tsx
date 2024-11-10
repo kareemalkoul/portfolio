@@ -1,5 +1,8 @@
 import { motion } from "framer-motion";
-import { socialLinks } from "../social-links";
+import { socialLinks } from "@/components/social-links";
+import { Download } from "lucide-react";
+import ShimmerButton from "@/components/ui/shimmer-button";
+
 export function Footer() {
   return (
     <footer className="bg-muted py-12">
@@ -30,7 +33,24 @@ export function Footer() {
             </span>
           </motion.a>
 
-          {/* Social Links with alternating left/right animations */}
+          {/* Download CV Button */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            <ShimmerButton
+              href="/kareem-fullstack.pdf"
+              download="Kareem_Alkoul_CV.pdf"
+              className="inline-flex items-center gap-2"
+            >
+              <Download className="w-4 h-4" />
+              Download CV
+            </ShimmerButton>
+          </motion.div>
+
+          {/* Social Links */}
           <div className="flex gap-6">
             {socialLinks.map((link, idx) => (
               <motion.a
@@ -42,7 +62,7 @@ export function Footer() {
                 aria-label={link.label}
                 initial={{ 
                   opacity: 0, 
-                  x: idx % 2 === 0 ? -50 : 50 // Alternate between left and right
+                  x: idx % 2 === 0 ? -50 : 50
                 }}
                 whileInView={{ 
                   opacity: 1, 

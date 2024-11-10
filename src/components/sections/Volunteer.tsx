@@ -6,15 +6,6 @@ import { useState } from "react";
 
 const volunteerExperiences = [
   {
-    icon: <Users className="w-6 h-6" />,
-    organization: "RBCs Team",
-    role: "Team Leader",
-    period: "Jan 2021 – Feb 2023",
-    description:
-      "Directed a team in organizing university lecture content to improve educational quality and accessibility at RBCs Team (rbcsteam.org). Developed strategic plans for content improvement, provided mentorship to team members, and managed project timelines and resources to meet deadlines.",
-    certificationImage: "/images/rbcs-mohammed-kareem.jpg",
-  },
-  {
     icon: <School className="w-6 h-6" />,
     organization: "RBCs Team",
     role: "Content Writer",
@@ -23,6 +14,16 @@ const volunteerExperiences = [
       "Created and refined lecture content for RBCs Team's educational platform, enhancing clarity and engagement through thorough research. Collaborated with team members and experts to develop high-quality educational materials while maintaining best practices and content standards.",
     certificationImage: "/images/rbcs-mohammed-kareem.jpg",
   },
+  {
+    icon: <Users className="w-6 h-6" />,
+    organization: "RBCs Team",
+    role: "Team Leader",
+    period: "Jan 2021 – Feb 2023",
+    description:
+      "Directed a team in organizing university lecture content to improve educational quality and accessibility at RBCs Team (rbcsteam.org). Developed strategic plans for content improvement, provided mentorship to team members, and managed project timelines and resources to meet deadlines.",
+    certificationImage: "/images/rbcs-mohammed-kareem.jpg",
+  },
+ 
 ];
 
 type ClickPosition = {

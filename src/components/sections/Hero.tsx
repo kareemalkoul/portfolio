@@ -11,7 +11,6 @@ import { ArrowDown } from "lucide-react";
 import Image from "next/image";
 import { socialLinks } from "@/components/social-links";
 
-
 export function Hero() {
   const scrollToNextSection = () => {
     const aboutSection = document.querySelector("#about");
@@ -29,8 +28,8 @@ export function Hero() {
   };
 
   return (
-    <section 
-      id="hero" 
+    <section
+      id="hero"
       className="relative min-h-screen flex items-center isolate"
     >
       {/* Background Pattern */}
@@ -75,7 +74,13 @@ export function Hero() {
 
               {/* CTA Buttons */}
               <div className="flex flex-wrap gap-4 mb-8 justify-center md:justify-start">
-                <ShimmerButton href="#contact">Get in Touch</ShimmerButton>
+                <ShimmerButton
+                  onClick={() => {
+                    window.location.href = "#contact";
+                  }}
+                >
+                  Get in Touch
+                </ShimmerButton>
                 <a
                   href="#projects"
                   className="px-6 py-3 border rounded-md hover:bg-primary/10 transition-colors"
