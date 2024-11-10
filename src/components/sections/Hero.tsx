@@ -1,15 +1,15 @@
-"use client";
 
+import { socialLinks } from "@/components/social-links";
 import BlurIn from "@/components/ui/blur-in";
 import DotPattern from "@/components/ui/dot-pattern";
 import { FadeText } from "@/components/ui/fade-text";
 import ShimmerButton from "@/components/ui/shimmer-button";
 import TypingAnimation from "@/components/ui/typing-animation";
+import { trackAction } from "@/lib/supabase";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import Image from "next/image";
-import { socialLinks } from "@/components/social-links";
 
 export function Hero() {
   const scrollToNextSection = () => {
@@ -26,6 +26,8 @@ export function Hero() {
       });
     }
   };
+
+  
 
   return (
     <section
@@ -77,12 +79,14 @@ export function Hero() {
                 <ShimmerButton
                   onClick={() => {
                     window.location.href = "#contact";
+                    trackAction("Get in Touch Click");
                   }}
                 >
                   Get in Touch
                 </ShimmerButton>
                 <a
                   href="#projects"
+                  onClick={() => trackAction("View Projects Click")}
                   className="px-6 py-3 border rounded-md hover:bg-primary/10 transition-colors"
                 >
                   View Projects
@@ -97,6 +101,7 @@ export function Hero() {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => trackAction(`Social Click: ${link.label}`)}
                     className="w-10 h-10 rounded-full bg-background flex items-center justify-center hover:bg-primary/10 hover:text-primary transition-colors"
                     aria-label={link.label}
                     initial={{ opacity: 0, y: 20 }}
