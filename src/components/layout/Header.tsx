@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { Menu, X, Code2 } from "lucide-react";
 import { ModeToggle } from "@/components/mode-toggle";
+import Link from "next/link";
 
 const navItems = [
   { name: "About", href: "#about" },
@@ -55,7 +56,7 @@ export function Header() {
     >
       <nav className="container mx-auto px-4 h-16 flex items-center justify-between">
         {/* Logo/Name */}
-        <a
+        <Link
           href="#"
           onClick={(e) => {
             e.preventDefault();
@@ -65,7 +66,7 @@ export function Header() {
         >
           <Code2 className="w-6 h-6 group-hover:rotate-12 transition-transform duration-300" />
           <span className="font-mono">Kareem Alkoul</span>
-        </a>
+        </Link>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-8">

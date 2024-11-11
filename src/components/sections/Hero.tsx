@@ -128,9 +128,11 @@ export function Hero() {
                 <Image
                   src="/images/circle-personal-photo-2023.png"
                   alt="Kareem Alkoul"
-                  fill
+                  // fill
                   className="object-cover transition-transform duration-500 group-hover:scale-110"
                   priority
+                  width={350}
+                  height={350}
                 />
               </div>
             </div>

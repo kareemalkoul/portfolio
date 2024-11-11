@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://kareem-alkoul.vercel.app/sitemap.xml 

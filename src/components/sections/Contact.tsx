@@ -35,7 +35,10 @@ export function Contact() {
   return (
     <AnimatedSection id="contact" className="py-16">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold mb-8">Get in Touch</h2>
+        <h2 className="text-3xl font-bold mb-8">
+          <span className="sr-only">Contact Section - </span>
+          Get in Touch
+        </h2>
         
         <div className="grid md:grid-cols-2 gap-12">
           {/* Contact Info */}
@@ -89,7 +92,11 @@ export function Contact() {
           </div>
 
           {/* Contact Form */}
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form 
+            onSubmit={handleSubmit} 
+            className="space-y-6"
+            aria-label="Contact form"
+          >
             <div>
               <label htmlFor="name" className="block text-sm font-medium mb-2">
                 Name
@@ -97,6 +104,7 @@ export function Contact() {
               <input
                 type="text"
                 id="name"
+                aria-label="Your name"
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 className="w-full px-4 py-2 rounded-md border bg-background hover:border-primary focus:border-primary transition-colors outline-none"
