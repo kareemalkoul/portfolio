@@ -290,7 +290,7 @@ export function Skills() {
             Skills & Expertise
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            A comprehensive overview of technologies and skills I've mastered throughout my journey
+            A comprehensive overview of technologies and skills I&apos;ve mastered throughout my journey
           </p>
         </motion.div>
 

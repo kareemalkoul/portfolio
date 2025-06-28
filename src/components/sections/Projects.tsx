@@ -380,7 +380,7 @@ export function Projects() {
             Featured Projects
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            A showcase of innovative solutions I've built across different domains and technologies
+            A showcase of innovative solutions I&apos;ve built across different domains and technologies
           </p>
         </motion.div>
 

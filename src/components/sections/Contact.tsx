@@ -54,7 +54,7 @@ export function Contact() {
             Get in Touch
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Ready to bring your ideas to life? Let's connect and discuss how we can work together
+            Ready to bring your ideas to life? Let&apos;s connect and discuss how we can work together
           </p>
         </motion.div>
         

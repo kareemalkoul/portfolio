@@ -53,7 +53,7 @@ export function FloatingNav() {
       threshold: 0,
     };
 
-    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+    const observerCallback = () => {
       updateActiveSection();
     };
 
@@ -99,7 +99,7 @@ export function FloatingNav() {
       className="fixed right-6 top-1/2 -translate-y-1/2 z-40 hidden lg:block"
     >
       <div className="bg-background/80 backdrop-blur-md border rounded-2xl p-2 shadow-lg">
-        {sections.map(({ id, label }, index) => (
+        {sections.map(({ id, label }) => (
           <motion.button
             key={id}
             onClick={() => scrollToSection(id)}
