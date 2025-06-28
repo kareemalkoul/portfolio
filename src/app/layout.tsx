@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     url: "https://kareem-alkoul.vercel.app",
     images: [
       {
-        url: "https://kareem-alkoul.vercel.app/favicon.png",
+        url: "https://kareem-alkoul.vercel.app/favicon.ico",
         width: 1200,
         height: 630,
         alt: "Kareem Alkoul - Full Stack Developer",
