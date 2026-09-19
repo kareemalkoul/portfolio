@@ -1,8 +1,8 @@
 [providers]
-node = "18"
+node = "20"
 
 [phases.setup]
-nixPkgs = ["nodejs-18_x", "pnpm"]
+nixPkgs = ["nodejs_20", "pnpm"]
 
 [phases.install]
 cmds = ["pnpm install"]
