@@ -1,4 +1,5 @@
 import { Users, School, X } from "lucide-react";
+import { SectionHeader } from "@/components/layout/section-header";
 import { AnimatedSection } from "../ui/animated-section";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
@@ -153,30 +154,20 @@ export function Volunteer() {
   };
 
   return (
-    <AnimatedSection id="volunteer" className="py-16 relative overflow-hidden">
+    <AnimatedSection id="volunteer" className="py-20 md:py-28 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-1/4 right-1/3 w-80 h-80 bg-primary/30 rounded-full blur-3xl animate-pulse" />
         <div className="absolute bottom-1/4 left-1/3 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-pulse delay-1000" />
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-center mb-12"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent">
-            Volunteer Experience
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Contributing to meaningful causes and making a positive impact in the community
-          </p>
-        </motion.div>
+      <div className="section-inner">
+        <SectionHeader
+          title="Volunteer Experience"
+          description="Contributing to meaningful causes and making a positive impact in the community"
+        />
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-6 md:gap-8">
           {volunteerExperiences.map((experience, index) => (
             <motion.div
               key={index}

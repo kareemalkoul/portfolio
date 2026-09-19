@@ -54,7 +54,7 @@ export function Header() {
           : "bg-transparent"
       )}
     >
-      <nav className="container mx-auto px-4 h-16 flex items-center justify-between">
+      <nav className="section-inner flex h-16 items-center justify-between">
         {/* Logo/Name */}
         <Link
           href="#"
@@ -107,7 +107,7 @@ export function Header() {
             : "-top-full opacity-0 invisible"
         )}
       >
-        <div className="container mx-auto px-4 py-4 flex flex-col gap-4">
+        <div className="section-inner py-4 flex flex-col gap-4">
           {navItems.map((item) => (
             <a
               key={item.name}

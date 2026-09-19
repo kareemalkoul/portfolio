@@ -21,7 +21,7 @@ export function ParticleField({
   className = "" 
 }: ParticleFieldProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const animationRef = useRef<number>();
+  const animationRef = useRef<number | undefined>(undefined);
   const particlesRef = useRef<Particle[]>([]);
 
   useEffect(() => {

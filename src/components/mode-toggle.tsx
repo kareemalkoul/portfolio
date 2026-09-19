@@ -13,8 +13,8 @@ export function ModeToggle() {
   }
 
   React.useEffect(() => {
-    // Check system preference on mount
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- apply system theme after mount to avoid hydration mismatch
     setIsDark(prefersDark)
     if (prefersDark) {
       document.documentElement.classList.add('dark')
@@ -47,4 +47,4 @@ export function ModeToggle() {
       </AnimatePresence>
     </motion.button>
   )
-} 
+}

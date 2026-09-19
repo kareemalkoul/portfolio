@@ -49,6 +49,12 @@
   }
 }
 
+@layer components {
+  .section-inner {
+    @apply container relative z-10 mx-auto px-4 sm:px-6;
+  }
+}
+
 @layer base {
   * {
     @apply border-border;

@@ -20,6 +20,7 @@ const ImageFallback = (props: ImageFallbackProps) => {
       {...rest}
       src={imgSrc ? fallbackSrc : src}
       alt={alt}
+      sizes={rest.sizes ?? (rest.fill ? "100vw" : undefined)}
       onError={() => {
         setImgSrc(true);
       }}

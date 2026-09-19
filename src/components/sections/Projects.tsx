@@ -5,7 +5,7 @@ import {
   Github,
   X,
 } from "lucide-react";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState, type ReactNode } from "react";
 import { motion } from "framer-motion";
 import { FaTools, FaUsers, FaUserTie } from "react-icons/fa";
 import {
@@ -28,6 +28,7 @@ import {
   SiSwagger,
   SiTensorflow,
 } from "react-icons/si";
+import { SectionHeader } from "@/components/layout/section-header";
 import ImageFallback from "../img";
 import { AnimatedSection } from "../ui/animated-section";
 
@@ -40,7 +41,7 @@ interface ProjectLinks {
 
 interface Tag {
   name: string;
-  icon?: JSX.Element;
+  icon?: ReactNode;
 }
 
 interface Project {
@@ -81,10 +82,7 @@ const projects: Project[] = [
     title: "Handyman",
     description:
       "Created a booking system that allows users to schedule home repair services, with integrated payment processing via Stripe.",
-    images: [
-      "/images/handyman/handyman-1.png",
-      // "/images/handyman/handyman-2.png",
-    ],
+    images: ["/images/project-placeholder.webp"],
     tags: [
       { name: "NestJS", icon: <SiNestjs className="w-3 h-3" /> },
       { name: "PostgreSQL", icon: <SiPostgresql className="w-3 h-3" /> },
@@ -361,30 +359,20 @@ function ProjectImageSlider({
 
 export function Projects() {
   return (
-    <AnimatedSection id="projects" className="py-16 bg-muted/50 relative overflow-hidden">
+    <AnimatedSection id="projects" className="py-20 md:py-28 bg-muted/50 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-1/4 right-1/4 w-80 h-80 bg-primary/30 rounded-full blur-3xl animate-pulse" />
         <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-pulse delay-1000" />
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-center mb-12"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent">
-            Featured Projects
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            A showcase of innovative solutions I&apos;ve built across different domains and technologies
-          </p>
-        </motion.div>
+      <div className="section-inner">
+        <SectionHeader
+          title="Featured Projects"
+          description="A showcase of innovative solutions I&apos;ve built across different domains and technologies"
+        />
 
-        <div className="grid md:grid-cols-3 gap-8 [&>*:last-child]:md:col-span-3">
+        <div className="grid md:grid-cols-3 gap-6 md:gap-8 [&>*:last-child]:md:col-span-3">
           {projects.map((project, idx) => (
             <motion.div
               key={idx}

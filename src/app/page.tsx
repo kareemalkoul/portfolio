@@ -17,19 +17,21 @@ export default function Home() {
 
   return (
     <div className="min-h-screen relative">
-      {/* Interactive Background Elements */}
       <ParticleField particleCount={30} className="opacity-30 dark:opacity-20" />
       <ScrollProgress />
       <FloatingNav />
-      
-      {/* Main Content */}
+
       <Header />
-      <Hero />
-      <About />
-      <Skills />
-      <Projects />
-      <Volunteer />
-      <Contact />
+
+      <main id="main-content">
+        <Hero />
+        <About />
+        <Skills />
+        <Projects />
+        <Volunteer />
+        <Contact />
+      </main>
+
       <Footer />
     </div>
   );

@@ -23,11 +23,8 @@ export async function POST(request: NextRequest) {
     ]);
 
     if (error) {
-      console.error("Error inserting data:", error);
-      return NextResponse.json(
-        { error: "Failed to track action" },
-        { status: 500 }
-      );
+      console.warn("track skipped:", error.message);
+      return NextResponse.json({ success: false });
     }
 
     return NextResponse.json({ success: true });

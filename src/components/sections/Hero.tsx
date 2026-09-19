@@ -18,6 +18,8 @@ export function Hero() {
 
   const x = useTransform(mouseX, [0, 1], [0, 50]);
   const y = useTransform(mouseY, [0, 1], [0, 50]);
+  const blobX = useTransform(x, (v) => v * -0.5);
+  const blobY = useTransform(y, (v) => v * -0.5);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -91,7 +93,7 @@ export function Hero() {
         />
         
         <motion.div
-          style={{ x: useTransform(x, v => v * -0.5), y: useTransform(y, v => v * -0.5) }}
+          style={{ x: blobX, y: blobY }}
           className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl"
           animate={{
             scale: [1.2, 1, 1.2],
@@ -107,7 +109,7 @@ export function Hero() {
       </div>
 
       {/* Content Container */}
-      <div className="container mx-auto px-4 py-32 relative z-10">
+      <div className="section-inner py-28 sm:py-32 md:py-36">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left Column - Text Content */}
           <div className="text-center md:text-left order-2 md:order-1">
@@ -185,7 +187,7 @@ export function Hero() {
               <div className="flex flex-wrap gap-4 mb-8 justify-center md:justify-start">
                 <ShimmerButton
                   onClick={() => {
-                    window.location.href = "#contact";
+                    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
                     trackAction("Get in Touch Click");
                   }}
                   className="group"

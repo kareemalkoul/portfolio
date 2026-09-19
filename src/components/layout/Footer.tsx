@@ -6,8 +6,8 @@ import { trackAction } from "@/lib/supabase";
 
 export function Footer() {
   return (
-    <footer className="bg-muted py-12">
-      <div className="container mx-auto px-4">
+    <footer className="bg-muted py-16 md:py-20 border-t border-border/60">
+      <div className="section-inner">
         <motion.div
           className="flex flex-col items-center gap-8"
           initial={{ opacity: 0, y: 20 }}

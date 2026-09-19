@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
 import { motion } from "framer-motion";
+import { SectionHeader } from "@/components/layout/section-header";
 import { AnimatedSection } from "../ui/animated-section";
 
 export function Contact() {
@@ -34,31 +35,25 @@ export function Contact() {
   };
 
   return (
-    <AnimatedSection id="contact" className="py-16 relative overflow-hidden">
+    <AnimatedSection id="contact" className="py-20 md:py-28 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-1/4 left-1/3 w-72 h-72 bg-primary/30 rounded-full blur-3xl animate-pulse" />
         <div className="absolute bottom-1/4 right-1/3 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-pulse delay-1000" />
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-center mb-12"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent">
-            <span className="sr-only">Contact Section - </span>
-            Get in Touch
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Ready to bring your ideas to life? Let&apos;s connect and discuss how we can work together
-          </p>
-        </motion.div>
-        
-        <div className="grid md:grid-cols-2 gap-12">
+      <div className="section-inner">
+        <SectionHeader
+          title={
+            <>
+              <span className="sr-only">Contact Section — </span>
+              Get in Touch
+            </>
+          }
+          description="Ready to bring your ideas to life? Let&apos;s connect and discuss how we can work together"
+        />
+
+        <div className="grid md:grid-cols-2 gap-10 md:gap-12">
           {/* Contact Info */}
           <motion.div 
             className="space-y-8"

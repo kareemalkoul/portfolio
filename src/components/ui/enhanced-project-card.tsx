@@ -3,11 +3,11 @@
 import { motion } from "framer-motion";
 import { ExternalLink, Github, Eye } from "lucide-react";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 
 interface ProjectTag {
   name: string;
-  icon?: JSX.Element;
+  icon?: ReactNode;
 }
 
 interface ProjectLinks {
@@ -62,6 +62,7 @@ export function EnhancedProjectCard({
             src={image}
             alt={title}
             fill
+            sizes="100vw"
             className={`object-cover transition-all duration-700 ${
               isHovered ? 'scale-110' : 'scale-100'
             } ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}

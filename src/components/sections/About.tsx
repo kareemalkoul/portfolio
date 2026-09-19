@@ -1,5 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import { Code2, Cpu, Globe, Terminal, TrendingUp, Users, Zap } from "lucide-react";
+import { SectionHeader } from "@/components/layout/section-header";
 import { AnimatedSection } from "../ui/animated-section";
 import { motion } from "framer-motion";
 
@@ -65,32 +66,20 @@ const achievements = [
 
 export function About() {
   return (
-    <AnimatedSection id="about" className="bg-muted/30 py-20 relative overflow-hidden">
+    <AnimatedSection id="about" className="bg-muted/30 py-20 md:py-28 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/20 rounded-full blur-3xl animate-pulse" />
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse delay-1000" />
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent">
-            About Me
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Passionate about creating innovative solutions that make a difference. 
-            Let me share my journey and what drives me as a developer.
-          </p>
-        </motion.div>
+      <div className="section-inner">
+        <SectionHeader
+          title="About Me"
+          description="Passionate about creating innovative solutions that make a difference. Let me share my journey and what drives me as a developer."
+        />
 
-        <div className="grid lg:grid-cols-2 gap-16 items-start mb-20">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start mb-16 md:mb-20">
           {/* Bio Section */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
